@@ -339,6 +339,7 @@ export default function() {
 
   function touchmoved(event, ...args) {
     if (!this.__zooming) return;
+    if (!filter.apply(this, arguments)) return;
     var g = gesture(this, args).event(event),
         touches = event.changedTouches,
         n = touches.length, i, t, p, l;
